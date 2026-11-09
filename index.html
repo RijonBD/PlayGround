@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101a27">
+  <meta name="description" content="Hold the line. Build your defenses and survive ten waves in Last Stand.">
+  <title>LAST STAND — Tower Defense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="gameCanvas" aria-label="Last Stand tower defense battlefield"></canvas>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">LS</div><div><div class="brand-title">LAST <span>STAND</span></div><div class="brand-sub">FRONTLINE DEFENSE</div></div></div>
+      <div class="top-actions"><button class="icon-btn" id="pauseBtn" aria-label="Pause game"><span id="pauseIcon">Ⅱ</span></button><button class="speed-btn" id="speedBtn" aria-label="Change game speed">1×</button></div>
+    </header>
+    <section class="status-row" aria-label="Game status">
+      <div class="stat-card health-card"><span class="stat-icon">✚</span><div class="stat-copy"><small>BASE INTEGRITY</small><strong id="healthText">20 / 20</strong></div><div class="health-track"><i id="healthBar"></i></div></div>
+      <div class="stat-card wave-card"><div class="wave-symbol">⌁</div><div class="stat-copy"><small>WAVE</small><strong><span id="waveText">01</span><em> / 10</em></strong></div><div class="wave-track"><i id="waveBar"></i></div></div>
+      <div class="coin-card"><span class="coin-icon">◆</span><strong id="coinText">210</strong><small>COINS</small></div>
+    </section>
+    <div class="battle-label"><span class="live-dot"></span><span id="phaseText">PREPARE YOUR DEFENSES</span><span class="battle-line"></span><span id="enemyCount">0 HOSTILES</span></div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <section class="tower-panel" id="towerPanel">
+      <div class="panel-heading"><div><span class="eyebrow">DEFENSE SYSTEMS</span><h2>Deploy units</h2></div><span class="deploy-badge">TAP TO BUILD</span></div>
+      <div class="tower-list" id="towerList"></div>
+      <div class="panel-foot"><span class="hint-dot">i</span><span>Tap a highlighted pad to deploy · tap a unit to inspect</span></div>
+    </section>
+    <section class="selected-panel hidden" id="selectedPanel">
+      <button class="panel-close" id="closeSelection" aria-label="Close selection">×</button>
+      <div id="selectedContent"></div>
+    </section>
+    <div class="wave-banner" id="waveBanner"><span class="banner-kicker">INCOMING ASSAULT</span><strong id="bannerTitle">WAVE 01</strong><span id="bannerSub">HOSTILES APPROACHING</span></div>
+    <div class="modal hidden" id="modal">
+      <div class="modal-card"><div class="modal-emblem" id="modalEmblem">★</div><span class="eyebrow" id="modalKicker">MISSION COMPLETE</span><h1 id="modalTitle">VICTORY</h1><p id="modalCopy">The frontier is safe.</p><div class="result-stats" id="resultStats"></div><button class="primary-btn" id="restartBtn">DEPLOY AGAIN <span>↻</span></button></div>
+    </div>
+    <footer class="bottom-bar"><div class="bottom-top"><div class="wave-status"><span class="wave-pip"></span><span id="bottomStatus">DEFENSE GRID ONLINE</span></div><button class="start-wave" id="waveBtn"><span>START WAVE</span><b>↗</b></button></div><div class="bottom-legend"><span>LAST STAND</span><span class="legend-center">DEFEND THE FRONTIER</span><span>v1.0</span></div></footer>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
